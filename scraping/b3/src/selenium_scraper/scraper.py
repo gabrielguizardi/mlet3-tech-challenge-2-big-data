@@ -23,7 +23,7 @@ def setup_driver():
         "safebrowsing.enabled": True
     })
 
-    driver_bin = "../driver/chromedriver"
+    driver_bin = "./driver/chromedriver"
     service = Service(driver_bin)
     return webdriver.Chrome(service=service, options=chrome_options)
 
