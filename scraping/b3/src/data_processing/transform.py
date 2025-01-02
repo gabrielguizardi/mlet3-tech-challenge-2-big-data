@@ -24,4 +24,5 @@ def csv_to_parquet(file_name):
 
     # Converte para Parquet
     df.to_parquet(parquet_path, index=False, engine="pyarrow")
-    print(f"Arquivo convertido para Parquet: {parquet_path}")
+
+    return parquet_path
