@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from config.settings import DOWNLOAD_DIR
+from datetime import datetime
 
 def csv_to_parquet(file_name):
     """Converte um arquivo CSV para Parquet."""
@@ -18,6 +19,8 @@ def csv_to_parquet(file_name):
         engine="python",
         index_col=False
     )
+
+    df['date'] = datetime.now().strftime("%Y-%m-%d")
 
     # Define o caminho de saída
     parquet_path = csv_path.replace(".csv", ".parquet")

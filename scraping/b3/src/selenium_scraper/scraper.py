@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from config.settings import DOWNLOAD_DIR, B3_URL
+from config.settings import DOWNLOAD_DIR, B3_URL, DRIVER_PATH
 from utils.file_utils import wait_for_file
 
 def setup_driver():
@@ -23,8 +23,7 @@ def setup_driver():
         "safebrowsing.enabled": True
     })
 
-    driver_bin = "./driver/chromedriver"
-    service = Service(driver_bin)
+    service = Service(DRIVER_PATH)
     return webdriver.Chrome(service=service, options=chrome_options)
 
 def download_csv():
