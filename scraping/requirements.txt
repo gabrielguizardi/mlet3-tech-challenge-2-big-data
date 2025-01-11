@@ -1,0 +1,6 @@
+numpy==2.2.1
+pandas==2.2.3
+pyarrow==18.1.0
+selenium==4.27.1
+python-dotenv==1.0.1
+boto3==1.35.90
