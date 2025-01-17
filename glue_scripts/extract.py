@@ -116,6 +116,15 @@ logger.info(f"Executando comando: {repair_table_query}")
 spark.sql(repair_table_query)
 logger.info(f"Comando MSCK REPAIR TABLE executado com sucesso para a tabela '{table_name}'.")
 
+lambda_client = boto3.client('lambda', region_name='us-east-1')
+lambda_function_name = "CallTransformGlueJob"
+
+try:
+    response = lambda_client.invoke(FunctionName=lambda_function_name, InvocationType='Event')
+    logger.info(f"Lambda '{lambda_function_name}' invocado com sucesso.")
+except Exception as e:
+    logger.error(f"Erro ao invocar Lambda '{lambda_function_name}': {e}")
+
 # fim
 
 job.commit()
