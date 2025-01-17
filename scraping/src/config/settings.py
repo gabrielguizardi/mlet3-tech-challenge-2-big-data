@@ -7,7 +7,7 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TIMESTAMP = datetime.now().strftime("%Y%m%d%H%M")
 DOWNLOAD_DIR_NAME = 'tmp'
-DOWNLOAD_DIR = os.path.join(BASE_DIR, DOWNLOAD_DIR_NAME, '202501082312')
+DOWNLOAD_DIR = os.path.join(BASE_DIR, DOWNLOAD_DIR_NAME, TIMESTAMP)
 
 B3_URL = "https://sistemaswebb3-listados.b3.com.br/indexPage/day/IBOV?language=pt-br"
 
