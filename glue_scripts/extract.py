@@ -8,7 +8,6 @@ from awsglue.job import Job
 # minhas importações
 import boto3
 import logging
-from pyspark.sql.functions import current_date, date_format
 from datetime import datetime
 
 ## @params: [JOB_NAME]
@@ -17,10 +16,6 @@ args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 sc = SparkContext()
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
-job = Job(glueContext)
-job.init(args['JOB_NAME'], args)
-
-# início
 
 # configura o Logger
 logger = logging.getLogger()
@@ -34,6 +29,8 @@ logger.addHandler(console_handler)
 
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
+
+# início
 
 bucket_name = "s3://fiap-etl-tech-challenge-2-540692057042"
 today_date = datetime.now().strftime("%Y-%m-%d")
